@@ -1,0 +1,54 @@
+{
+  "name": "rlookup",
+  "version": "0.1.0",
+  "description": "A route lookup built on top of Houkou",
+  "main": "index.js",
+  "scripts": {
+    "test": ".bin/test",
+    "prepublish": "if [ \"$NODE_ENV\" = production  ]; then .bin/compile; fi",
+    "postpublish": "if [ \"$NODE_ENV\" = production   ]; then .bin/clean; fi",
+    "start": ".bin/start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UXtemple/rlookup"
+  },
+  "keywords": [
+    "route",
+    "lookup",
+    "houkou",
+    "router",
+    "parser",
+    "UXtemple"
+  ],
+  "author": "UXtemple <hi@uxtemple.com>",
+  "contributors": [
+    "Darío Javier Cravero <dario@uxtemple.com>",
+    "Tom Parandyk <tom@uxtemple.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UXtemple/rlookup/issues"
+  },
+  "homepage": "https://github.com/UXtemple/rlookup",
+  "dependencies": {
+    "houkou": "^0.2.2"
+  },
+  "devDependencies": {
+    "babel": "^5.5.6",
+    "babel-eslint": "^3.1.15",
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
+    "eslint": "^0.22.1",
+    "livereloadify": "^2.0.0",
+    "mocha": "^2.2.5",
+    "node-static": "^0.7.6",
+    "sinon": "^1.15.3",
+    "watchify": "^3.2.2"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  }
+}
