@@ -8,6 +8,11 @@ const PATH_PARAM = 'path';
 const PATH = `/${PATH_PARAM}`;
 const PATTERN_PARAM = 'param';
 const PATTERN = `/:${PATTERN_PARAM}`;
+const CONFIG = {
+  requirements: {
+    [PATTERN_PARAM]: '[a-z]+'
+  }
+}
 
 describe('RLookup', () => {
   it('has a constructor', () => assert(new RLookup() instanceof RLookup));
@@ -58,5 +63,19 @@ describe('RLookup', () => {
 
       assert(comparator.called);
     });
+  });
+
+  describe('with configurable patterns', () => {
+    let rlookup;
+    beforeEach(() => rlookup = new RLookup({patterns: [{name: PATTERN, ...CONFIG}]}));
+
+    it('#match: matches a route with requirements', () => {
+      const {pattern, params} = rlookup.match(PATH);
+      assert(pattern === PATTERN, 'has pattern');
+      assert(params[PATTERN_PARAM] === PATH_PARAM, 'has the right params');
+    });
+
+    it('#match: doesn\'t match a route that doesn\'t fit the requirements', () =>
+      assert(typeof rlookup.match('/123') === 'undefined'));
   });
 });

@@ -1,7 +1,10 @@
 # Change log
 
+## [0.2.0] - 2015-08-05
+### Added
+- Allow pattern configuration.
+
 ## [0.1.0] - 2015-06-21
 ### Added
-
 - RLookup with #add, #remove and #match.
 - Default comparator that counts forwards for specificity.

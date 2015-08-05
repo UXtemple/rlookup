@@ -5,15 +5,16 @@ export default class RLookup {
   constructor({patterns=[], compare=defaultCompare}={}) {
     this.compare = compare;
     this.patterns = {};
-    patterns.forEach(pattern => this.patterns[pattern] = new Route(pattern));
+    patterns.forEach(::this.add);
   }
 
   add(pattern) {
-    this.patterns[pattern] = new Route(pattern);
+    const { name, ...config } = typeof pattern === 'string' ? {name: pattern} : pattern;
+    this.patterns[name] = new Route(name, config);
   }
 
-  remove(pattern) {
-    delete this.patterns[pattern];
+  remove(name) {
+    delete this.patterns[name];
   }
 
   match(path) {
