@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": ".bin/build",
+    "clean": ".bin/clean",
     "push": ".bin/push",
-    "test": ".bin/clean && .bin/test",
+    "test": "npm run clean && .bin/test",
     "start": ".bin/start"
   },
   "repository": {

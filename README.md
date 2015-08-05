@@ -6,8 +6,8 @@ A route lookup built on top of Houkou.
 
 ## Usage
 
-```
-const rlookup = new RLookup();
+```js
+var rlookup = new RLookup();
 
 rlookup.add('/some-:path');
 rlookup.add({
@@ -17,7 +17,10 @@ rlookup.add({
   }
 });
 
-const { pattern, params } = rlookup.match('/some-thing/else');
+rlookup.match('/some-thing/123');
+// =>
+// { pattern: '/some-:path/:more',
+//   params: { path: 'thing', more: '123' } }
 ```
 
 See [Houkou](https://github.com/deoxxa/houkou) for more info on routes and
