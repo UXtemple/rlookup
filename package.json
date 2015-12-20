@@ -1,6 +1,5 @@
 {
   "name": "rlookup",
-  "version": "0.2.0",
   "description": "A route lookup built on top of Houkou",
   "main": "index.js",
   "scripts": {
